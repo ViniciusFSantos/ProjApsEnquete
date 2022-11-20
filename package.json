@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "knex": "^2.3.0",
+    "nodemon": "^2.0.20",
+    "pg": "^8.8.0"
+  },
+  "name": "projaps",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "devDependencies": {
+  "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
