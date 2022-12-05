@@ -23,6 +23,71 @@ module.exports ={
         }
     },
 
+    async getTotalEntrevistadosRendaFixa(req, res){
+        try{
+            
+            querysetall = await knex('entrevistados').where('investe_rdf', 'Sim').count()
+            return res.json(querysetall)
+
+        }catch{
+
+            return res.status(400).json({error: error.message})
+
+        }
+    },
+
+    async getTotalEntrevistadosRendaVariavel(req, res){
+        try{
+            
+            querysetall = await knex('entrevistados').where('investe_rdv', 'Sim').count()
+            return res.json(querysetall)
+
+        }catch{
+
+            return res.status(400).json({error: error.message})
+
+        }
+    },
+
+    async getTotalConhecimentoJurosComposto(req, res){
+        try{
+            
+            querysetall = await knex('entrevistados').where('conhece_jc', 'Sim').count()
+            return res.json(querysetall)
+
+        }catch{
+
+            return res.status(400).json({error: error.message})
+
+        }
+    },
+
+    async getMediaIdadeRendaFixa(req, res){
+        try{
+            
+            querysetall = await knex('entrevistados').where('investe_rdf', 'Sim').avg('idade')
+            return res.json(querysetall)
+
+        }catch{
+
+            return res.status(400).json({error: error.message})
+
+        }
+    },
+
+    async getMediaIdadeRendaVariavel(req, res){
+        try{
+            
+            querysetall = await knex('entrevistados').where('investe_rdv', 'Sim').avg('idade')
+            return res.json(querysetall)
+
+        }catch{
+
+            return res.status(400).json({error: error.message})
+
+        }
+    },
+
     async addEntrevistados(req, res){
         try{
             const{nome} = req.body

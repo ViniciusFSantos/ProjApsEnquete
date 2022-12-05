@@ -5,7 +5,7 @@ module.exports = {
     connection: {
       database: 'projaps',
       user:'postgres',
-      password:'123',
+      password:'Vini@852$',
       host: 'localhost',
       port: 5432,
 
