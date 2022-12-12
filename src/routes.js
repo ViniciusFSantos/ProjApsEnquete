@@ -15,5 +15,6 @@ routes.get('/entrevistados/getTotalRendaVariavel', mainController.getTotalEntrev
 routes.get('/entrevistados/getTotalConhecimentoJurosComposto', mainController.getTotalConhecimentoJurosComposto)
 routes.get('/entrevistados/getMediaIdadeRendaFixa', mainController.getMediaIdadeRendaFixa)
 routes.get('/entrevistados/getMediaIdadeRendaVariavel', mainController.getMediaIdadeRendaVariavel)
+routes.get('/entrevistados/getEntrevistadosQueInvestemEmAlgumAtivo', mainController.getEntrevistadosQueInvestemEmAlgumAtivo)
 
 module.exports = routes

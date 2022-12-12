@@ -7,7 +7,13 @@ module.exports ={
     async raiz(req, res){
         const result = await console.log('servidor requisitado')
 
-        return res.send('Seja bem-vindo a API de enquete financeira!!')
+        const msg =['API de enquete financeira! Utilize as rotas para obter dados:...',' Adicionar um entrevistado=> /entrevistadosadd ',' Dados de todos os entrevistados=> /entrevistados ',' Total de entrevistados que investem em Renda Fixa=> /entrevistados/getTotalRendaFixa ', ' Total de entrevistados que investem em Renda Variável=> /entrevistados/getTotalRendaVariavel ',
+        ' Total de entrevistados que conhecem ou já ouviram falar em juros compostos=> /entrevistados/getTotalConhecimentoJurosComposto ', 'Média de idade entre entrevistados que investem em Renda Fixa=> /entrevistados/getMediaIdadeRendaFixa',
+        ' Média de idade entre entrevistados que investem em Renda Variável=> /entrevistados/getMediaIdadeRendaVariavel ',' Entrevistados que investem em algum tipo de ativo=> /entrevistados/getEntrevistadosQueInvestemEmAlgumAtivo '
+    ]
+
+        return res.send(msg)
+        
     },
     
     async getEntrevistados(req, res){
@@ -81,6 +87,17 @@ module.exports ={
             querysetall = await knex('entrevistados').where('investe_rdv', 'Sim').avg('idade')
             return res.json(querysetall)
 
+        }catch{
+
+            return res.status(400).json({error: error.message})
+
+        }
+    },
+    async getEntrevistadosQueInvestemEmAlgumAtivo(req, res){
+        try{
+            
+            querysetall = await knex('entrevistados').where('investe_rdv', 'Sim').orWhere('investe_rdf', 'Sim')
+            return res.json(querysetall)
         }catch{
 
             return res.status(400).json({error: error.message})
